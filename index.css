@@ -4,3 +4,15 @@
     border: 3px solid #000;
     margin: 40px;
 }
+
+.btn {
+    border: none;
+    padding: 10px;
+    background-color: #efff95;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #a1b729;
+    color: #ffff;
+}

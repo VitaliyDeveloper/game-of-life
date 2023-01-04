@@ -2,6 +2,7 @@ const root = document.getElementById("root");
 const canvas = document.createElement("canvas");
 const generationCount = document.createElement("p");
 document.getElementById("start").onclick = startLife;
+document.getElementById("reset").onclick = reset;
 
 canvas.width = 500;
 canvas.height = 500;
@@ -86,6 +87,10 @@ function fpm(i) {
 function fpp(i) {
   if (i == 49) return -1;
   else return i;
+}
+
+function reset() {
+  window.location.reload();
 }
 
 root.appendChild(generationCount);
