@@ -1,14 +1,31 @@
+:root {
+    --color-1: #186cb8;
+    --color-2: #2a9a9f;
+    --color-3: #f1b211;
+    --color-4: #e83611;
+    --color-5: #f9002f;
+}
+
 @keyframes pulser {
     0% {
-        box-shadow: 0 0 15px #a1b729;
+        box-shadow: 0px 0px 15px -5px var(--color-1),
+            0px 0px 15px -5px var(--color-2),
+            0px 0px 15px -5px var(--color-3),
+            0px 0px 15px -5px var(--color-4);
     }
 
     50% {
-        box-shadow: 0 0 30px #efff95;
+        box-shadow: -20px -20px 15px -10px var(--color-1),
+            -20px 20px 15px -10px var(--color-2),
+            20px -20px 15px -10px var(--color-3),
+            20px 20px 15px -10px var(--color-4);
     }
 
     100% {
-        box-shadow: 0 0 15px #a1b729;
+        box-shadow: 0px 0px 15px -5px var(--color-1),
+            0px 0px 15px -5px var(--color-2),
+            0px 0px 15px -5px var(--color-3),
+            0px 0px 15px -5px var(--color-4);
     }
 }
 
@@ -46,6 +63,15 @@ body {
     font-size: 40px;
     text-transform: uppercase;
     margin-bottom: 0;
+    background: linear-gradient(219deg,
+            var(--color-1) 19%,
+            var(--color-2) 20%, var(--color-2) 39%,
+            var(--color-3) 40%, var(--color-3) 59%,
+            var(--color-4) 60%, var(--color-4) 79%,
+            var(--color-5) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .subtilteText {
