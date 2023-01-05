@@ -80,8 +80,9 @@ function drawField() {
       if (mas[i][j] === 1) {
         // ctx.fillStyle = generateColor();
         // ctx.fillRect(j * 10, i * 10, 10, 10);
-        ctx.fillStyle = getRamdomColor();
-        ctx.strokeStyle = getRamdomColor();
+        const color = getRamdomColor();
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
         ctx.globalAlpha = 0.5;
         ctx.beginPath();
         ctx.arc(5 + j * 10, 5 + i * 10, 6, 0, Math.PI * 2, true);
