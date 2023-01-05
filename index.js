@@ -2,13 +2,14 @@ const root = document.getElementById("root");
 const canvas = document.createElement("canvas");
 const generationCount = document.querySelector(".counter");
 const colorBtn = document.querySelectorAll(".btnColorSet");
+
 document.getElementById("start").onclick = startLife;
 document.getElementById("reset").onclick = reset;
 document.getElementById("delLastColor").onclick = delLastColor;
 
 canvas.width = 500;
 canvas.height = 500;
-canvas.style.border = "3px solid #fff";
+canvas.style.border = "3px solid #efff95";
 canvas.id = "cl";
 
 const ctx = canvas.getContext("2d");
@@ -36,6 +37,7 @@ colorBtn.forEach((btn) => {
     if (!currentColor.includes(e.currentTarget.innerText)) {
       currentColor.push(`${e.currentTarget.innerText}`);
     }
+
     console.log(currentColor);
     return;
   });
@@ -58,6 +60,7 @@ canvas.onclick = function (e) {
 function goLife() {
   const n = 50,
     m = 50;
+
   for (let i = 0; i < m; i++) {
     mas[i] = [];
 
@@ -71,6 +74,7 @@ goLife();
 
 function drawField() {
   ctx.clearRect(0, 0, 500, 500);
+
   for (let i = 0; i < 50; i++) {
     for (let j = 0; j < 50; j++) {
       if (mas[i][j] === 1) {
@@ -88,9 +92,12 @@ function drawField() {
 }
 
 function startLife() {
+  canvas.classList.add("animationPulser");
   let mas2 = [];
+
   for (let i = 0; i < 50; i++) {
     mas2[i] = [];
+
     for (let j = 0; j < 50; j++) {
       let neighbors = 0;
 
@@ -105,10 +112,12 @@ function startLife() {
       neighbors == 2 || neighbors == 3 ? (mas2[i][j] = 1) : mas2[i][j] == 0;
     }
   }
+
   mas = mas2;
   drawField();
   counter++;
   timer = setTimeout(startLife, 300);
+
   generationCount.innerText = `COUNTER: ${counter++}`;
 }
 
@@ -130,6 +139,7 @@ function delLastColor() {
   if (currentColor.length > 1) {
     currentColor.pop();
   }
+
   console.log(currentColor);
   return;
 }
@@ -137,9 +147,11 @@ function delLastColor() {
 function generateColor() {
   const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
   let code = "";
+
   for (let i = 0; i < 6; i++) {
     code += hexArray[Math.floor(Math.random() * 16)];
   }
+
   return `#${code}`;
 }
 

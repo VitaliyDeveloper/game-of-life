@@ -1,3 +1,17 @@
+@keyframes pulser {
+    0% {
+        box-shadow: 0 0 15px #a1b729;
+    }
+
+    50% {
+        box-shadow: 0 0 30px #efff95;
+    }
+
+    100% {
+        box-shadow: 0 0 15px #a1b729;
+    }
+}
+
 body {
     box-sizing: border-box;
     margin: 0;
@@ -17,7 +31,14 @@ body {
 
 #cl {
     margin: 50px;
+    /* box-shadow: 0 0 15px #efff95; */
+    border-radius: 20px;
 }
+
+.animationPulser {
+    animation: pulser 1500ms linear infinite;
+}
+
 
 .titleColor {
     text-align: center;
@@ -45,10 +66,12 @@ body {
     margin: 10px;
     background-color: #efff95;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 .btn:hover {
     background-color: #a1b729;
+    box-shadow: 0 0 20px #efff95;
     color: #ffff;
 }
 
