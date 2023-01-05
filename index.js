@@ -1,6 +1,6 @@
 const root = document.getElementById("root");
 const canvas = document.createElement("canvas");
-const generationCount = document.createElement("p");
+const generationCount = document.querySelector(".counter");
 document.getElementById("start").onclick = startLife;
 document.getElementById("reset").onclick = reset;
 
@@ -79,8 +79,8 @@ function startLife() {
   drawField();
   counter++;
   timer = setTimeout(startLife, 300);
+  generationCount.innerText = `COUNTER: ${counter++}`;
 }
-generationCount.innerText = `COUNTER: ${counter++}`;
 
 function fpm(i) {
   if (i === 0) return 50;
@@ -124,5 +124,4 @@ function getRamdomColor() {
   return colors[index];
 }
 
-root.appendChild(generationCount);
 root.appendChild(canvas);
