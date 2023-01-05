@@ -1,6 +1,7 @@
 const root = document.getElementById("root");
 const canvas = document.createElement("canvas");
 const generationCount = document.querySelector(".counter");
+const colorBtn = document.querySelectorAll(".btnColorSet");
 document.getElementById("start").onclick = startLife;
 document.getElementById("reset").onclick = reset;
 
@@ -14,8 +15,29 @@ const ctx = canvas.getContext("2d");
 let mas = [];
 let counter = 0;
 let timer = 0;
+let currentColor = ["#ffff"];
 
-canvas.onmousedown = function (e) {
+console.log(colorBtn);
+
+function setColorBtn() {
+  colorBtn.forEach((el) => {
+    const colorBtnRandom = generateColor();
+    el.style.background = colorBtnRandom;
+    el.innerHTML = colorBtnRandom;
+  });
+}
+
+setColorBtn();
+
+colorBtn.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    console.log(e.target);
+    currentColor.push(`${e.currentTarget.innerText}`);
+    console.log(currentColor);
+  });
+});
+
+canvas.onclick = function (e) {
   let x = e.offsetX;
   let y = e.offsetY;
 
@@ -100,32 +122,37 @@ function reset() {
   window.location.reload();
 }
 
-// function generateColor() {
-//   const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
-//   let code = "";
-//   for (let i = 0; i < 6; i++) {
-//     code += hexArray[Math.floor(Math.random() * 16)];
-//   }
-//   return `#${code}`;
-// }
+function generateColor() {
+  const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+  let code = "";
+  for (let i = 0; i < 6; i++) {
+    code += hexArray[Math.floor(Math.random() * 16)];
+  }
+  return `#${code}`;
+}
 
 function getRamdomColor() {
-  const colors = [
-    // "#BFFF00",
-    // "#FFD700",
-    // "#EB6123",
-    // "#DF73FF",
-    // "#4B0082",
-    // "#FBAED2",
-    // "#545AA7",
-    "#15F2FD",
-    "#FFF832",
-    "#6984FF",
-    "#FF1482",
-    "#52FF46",
-  ];
-  const index = Math.floor(Math.random() * colors.length);
-  return colors[index];
+  const index = Math.floor(Math.random() * currentColor.length);
+  return currentColor[index];
 }
+
+// function getRamdomColor() {
+//   const colors = [
+//     "#BFFF00",
+//     "#FFD700",
+//     "#EB6123",
+//     "#DF73FF",
+//     "#4B0082",
+//     "#FBAED2",
+//     "#545AA7",
+//     "#15F2FD",
+//     "#FFF832",
+//     "#6984FF",
+//     "#FF1482",
+//     "#52FF46",
+//   ];
+//   const index = Math.floor(Math.random() * colors.length);
+//   return colors[index];
+// }
 
 root.appendChild(canvas);
