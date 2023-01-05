@@ -15,7 +15,7 @@ let mas = [];
 let counter = 0;
 let timer = 0;
 
-canvas.onclick = function (e) {
+canvas.onmousedown = function (e) {
   let x = e.offsetX;
   let y = e.offsetY;
 
@@ -49,9 +49,13 @@ function drawField() {
     for (let j = 0; j < 50; j++) {
       if (mas[i][j] === 1) {
         // ctx.fillStyle = generateColor();
+        // ctx.fillRect(j * 10, i * 10, 10, 10);
         ctx.fillStyle = getRamdomColor();
-
-        ctx.fillRect(j * 10, i * 10, 10, 10);
+        ctx.strokeStyle = getRamdomColor();
+        ctx.globalAlpha = 0.5;
+        ctx.beginPath();
+        ctx.arc(5 + j * 10, 5 + i * 10, 6, 0, Math.PI * 2, true);
+        ctx.fill();
       }
     }
   }
@@ -114,11 +118,11 @@ function getRamdomColor() {
     // "#4B0082",
     // "#FBAED2",
     // "#545AA7",
-    // "#15F2FD",
+    "#15F2FD",
     "#FFF832",
     "#6984FF",
-    // "#FF1482",
-    // "#52FF46",
+    "#FF1482",
+    "#52FF46",
   ];
   const index = Math.floor(Math.random() * colors.length);
   return colors[index];
