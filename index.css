@@ -43,7 +43,7 @@ body {
 .titleColor {
     text-align: center;
     color: #ffff;
-    font-size: 50px;
+    font-size: 40px;
     text-transform: uppercase;
     margin-bottom: 0;
 }
@@ -51,7 +51,7 @@ body {
 .subtilteText {
     text-align: center;
     color: #ffff;
-    font-size: 20px;
+    font-size: 19px;
 
 }
 
@@ -72,12 +72,16 @@ body {
     margin: 10px;
 }
 
+.btnColorSet:hover {
+    box-shadow: 0 0 15px #ffff;
+}
+
 .btnContainer {
     margin: 10px;
 }
 
 .btn {
-    border: none;
+    border: 1px solid #efff95;
     padding: 10px;
     margin: 10px;
     background-color: #efff95;
@@ -87,8 +91,9 @@ body {
 
 .btn:hover {
     background-color: #a1b729;
-    box-shadow: 0 0 20px #efff95;
+    box-shadow: 0 0 15px #ffff;
     color: #ffff;
+    border: 1px solid #000;
 }
 
 .counter {
